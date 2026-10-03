@@ -1,6 +1,6 @@
 const mongoose = require("mongoose");
 
-const productSchema = new mongoose.Schema({
+const ProductSchema = new mongoose.Schema({
 	name: {
 		type: String,
 		required: [true, "product name must be provided"],
@@ -24,11 +24,11 @@ const productSchema = new mongoose.Schema({
 	company: {
 		type: String,
 		enum: {
-			values: ["ikea", "liddy", "caressa", "macros"],
-			message: ["{VALUE} is not supported"],
+			values: ["ikea", "liddy", "caressa", "marcos"],
+			message: "{VALUE} is not supported",
 		},
 		// enum:['ikea', 'liddy', 'caressa', 'macros']
 	},
 });
 
-module.exports = mongoose.model("Product", productSchema);
+module.exports = mongoose.model("Product", ProductSchema);
