@@ -11,9 +11,13 @@ const error_middleware = require("./middleware/error-handler");
 app.use(express.json());
 
 //routes
+const router = require("./routes/products");
+
 app.get("/", (req, res) => {
 	res.send('<h1>store api</h1><a href="/api/v1/products">Products route</a>');
 });
+
+app.use("/api/v1/products", router);
 
 //errors
 app.use(notFound_middleware);
