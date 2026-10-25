@@ -24,19 +24,18 @@ const getAllProducts = async (req, res) => {
 
 	if (numericFilters) {
 		const operatorMap = {
-			">": "$gt",
-			">=": "$gte",
-			"=": "$eq",
-			"<": "$lt",
-			"<=": "$lt",
+			">": "gt",
+			">=": "gte",
+			"=": "eq",
+			"<": "lt",
+			"<=": "lte",
 		};
 
-		const reqEx = /\b(>|<|=|>=|<=)\b/g;
+		const regEx = /\b(<|>|=|>=|<=)\b/g;
 		const filter = numericFilters.replace(
 			reqEx,
 			(match) => `-${operatorMap[match]}-`,
 		);
-
 		console.log(filter);
 	}
 	// console.log(req.query);
